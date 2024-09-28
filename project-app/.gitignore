@@ -1,0 +1,7 @@
+# Ignore build files
+/build/
+*.log
+*.tmp
+*.class
+*.DS_Store
+node_modules/

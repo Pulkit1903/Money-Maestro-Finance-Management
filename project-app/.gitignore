@@ -1,7 +1,11 @@
 # Ignore build files
-/build/
+build/
 *.log
 *.tmp
 *.class
 *.DS_Store
 node_modules/
+.next/
+.cache/
+server/
+static/

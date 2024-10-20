@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import { handle } from 'hono/vercel'
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
+import accounts from "./account";
 
 export const runtime = 'edge'
 
@@ -29,5 +30,9 @@ app.get('/hello',
         })
     })
 
+const routes = app.route("/accounts", accounts); // expect route handler, not a db schema object
+
 export const GET = handle(app)
 export const POST = handle(app)
+
+export type Apptype = typeof app; //used while combining with react query 

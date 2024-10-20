@@ -25,19 +25,21 @@
     "drizzle-zod": "^0.5.1",
     "hono": "^4.6.3",
     "lucide-react": "^0.446.0",
-    "next": "14.2.13",
+    "next": "^14.2.15",
     "pg": "^8.13.0",
     "project-app": "file:",
     "react": "^18",
     "react-dom": "^18",
     "react-use": "^17.5.1",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/uuid": "^10.0.0",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.26.2",
     "eslint": "^8",

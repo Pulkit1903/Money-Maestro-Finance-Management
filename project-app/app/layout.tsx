@@ -5,6 +5,8 @@ import {
   SignedOut
 } from '@clerk/nextjs'
 import './globals.css'
+import { QueryProvider } from '@/providers/query-provider'
+import { SheetProvider } from '@/providers/sheet-provider'
 export default function RootLayout({
   children,
 }: {
@@ -19,7 +21,10 @@ export default function RootLayout({
           </SignedOut>
           <SignedIn>
           </SignedIn>
-          {children}
+          <QueryProvider>
+            <SheetProvider/>
+            {children}
+          </QueryProvider>
         </body>
       </html>
     </ClerkProvider>

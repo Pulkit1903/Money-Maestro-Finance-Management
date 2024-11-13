@@ -5,7 +5,7 @@ import accounts from "./account";
 
 export const runtime = 'edge'
 
-const app = new Hono().basePath('/api')
+export const app = new Hono().basePath('/api')
 
 app.get('/hello',
     clerkMiddleware(),

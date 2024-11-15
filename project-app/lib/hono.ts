@@ -1,5 +1,4 @@
 import { hc } from "hono/client";
-import { Apptype } from "@/app/api/[[...route]]/route";
+import { AppType } from "@/app/api/[[...route]]/route";
 
-export const client = hc<Apptype>(process.env.NEXT_PUBLIC_APP_URL!);
-export type ClientType = typeof client;
+export const client = hc<AppType>(process.env.NEXT_PUBLIC_APP_URL!);  

@@ -1,9 +1,10 @@
 import { Hono } from "hono";
 import { db } from "@/app/db/index";
-import { accounts, insertAccount } from "@/app/db/schema";
+import { accounts, insertAccountSchema } from "@/app/db/schema";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 import { eq } from "drizzle-orm";
- import { zValidator } from "@hono/zod-validator";
+import { zValidator } from "@hono/zod-validator";
+import { v4 as uuidv4 } from 'uuid'; // Import the UUID library
 
 // Create an instance of Hono
 const app = new Hono();
@@ -37,7 +38,7 @@ app.post(
     clerkMiddleware(),
     zValidator(
         "json",
-        insertAccount.pick({
+        insertAccountSchema.pick({
             name: true,
         })
     ),
@@ -52,6 +53,7 @@ app.post(
         const [data] = await db
             .insert(accounts)
             .values({
+                id: uuidv4(), // Generate a unique ID for the new account
                 userId: auth.userId,
                 ...values,
             })
@@ -59,6 +61,6 @@ app.post(
 
         return c.json({ data });
     }
-)
-export default app;
+);
 
+export default app;

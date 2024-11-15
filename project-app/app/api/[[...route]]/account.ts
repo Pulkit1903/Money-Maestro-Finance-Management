@@ -62,5 +62,3 @@ app.post(
         return c.json({ data });
     }
 );
-
-export default app;

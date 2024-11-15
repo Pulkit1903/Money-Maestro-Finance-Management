@@ -1,5 +1,7 @@
-import { Hono } from 'hono';
-import { handle } from 'hono/vercel';
+import { Hono } from 'hono'
+import { handle } from 'hono/vercel'
+import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
+import { HTTPException} from "hono/http-exception";
 import accounts from "./account";
 import transactions from './transactions';
 
@@ -14,3 +16,10 @@ app.route("/account", accounts);
 app.route("/transactions", transactions);
 
 export type AppType = typeof app;
+=======
+app.onError((err,c) => {
+    if(err instanceof HTTPException){
+        return err.getResponse();
+    }
+    return c.json({ error: "Internal Server Error" }, 500);
+});

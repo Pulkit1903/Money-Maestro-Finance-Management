@@ -1,6 +1,0 @@
-import { hc } from  "hono/client";
-import{ Apptype } from  "@/app/api/[[...route]]/route";
-
-export const client = async () => {
-    return hc<Apptype>(process.env.NEXT_PUBLIC_API_URL!);
-}

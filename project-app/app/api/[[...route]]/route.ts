@@ -1,15 +1,16 @@
-import { Hono } from 'hono'
-import { handle } from 'hono/vercel'
-import accounts from "./account";
+import { Hono } from 'hono';
+import { handle } from 'hono/vercel';
+import accounts from './account';
+import transactions from './transactions'; // Import the transactions route handler
 
-export const runtime = 'edge'
-
-export const app = new Hono().basePath('/api')
+export const runtime = 'edge';
+export const app = new Hono().basePath('/api');
 
 const routes = app
-.route("/accounts", accounts); // expect route handler, not a db schema object
+  .route('/accounts', accounts) // Attach accounts route
+  .route('/transactions', transactions); // Attach transactions route
 
 export const GET = handle(app);
 export const POST = handle(app);
 
-export type Apptype = typeof routes; //used while combining with react query 
+export type AppType = typeof routes; // Extend AppType to include all routes

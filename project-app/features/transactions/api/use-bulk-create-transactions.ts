@@ -2,7 +2,7 @@ import { toast } from "sonner";
 import { InferRequestType, InferResponseType } from "hono";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { client } from "@/lib/hono";
+import { client } from "@/lib/hono"; // client is not working
 
 type ResponseType = InferResponseType<
   (typeof client.api.transactions)["bulk-create"]["$post"]

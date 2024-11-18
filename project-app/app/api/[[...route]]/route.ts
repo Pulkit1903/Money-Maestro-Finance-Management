@@ -8,8 +8,13 @@ export const runtime = 'edge';
 
 export const app = new Hono().basePath('/api');
 
+const routes = app
+  .route('/accounts', accounts) // Attach accounts route
+  .route('/transactions', transactions); // Attach transactions route
+
 export const GET = handle(app);
 export const POST = handle(app);
+
 
 app.route("/account", accounts);
 app.route("/transactions", transactions);

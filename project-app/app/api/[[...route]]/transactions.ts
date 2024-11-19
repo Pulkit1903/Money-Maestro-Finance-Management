@@ -53,9 +53,9 @@ app.get("/", async (c) => {
             const defaultFrom = subDays(defaultTo, 30);
 
             const startDate = from
-                ? parse(from, "yyyy-MM-dd", new Date())
+                ? parse(from)
                 : defaultFrom;
-            const endDate = to ? parse(to, "yyyy-MM-dd", new Date()) : defaultTo;
+            const endDate = to ? parse(to) : defaultTo;
 
             /**
              * Fetches transaction data from the database with specified filters and joins.

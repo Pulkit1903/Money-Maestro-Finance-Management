@@ -15,10 +15,6 @@ const routes = app
 export const GET = handle(app);
 export const POST = handle(app);
 
-
-app.route("/account", accounts);
-app.route("/transactions", transactions);
-
 app.onError((err, c) => {
     if (err instanceof HTTPException) {
         return err.getResponse();
@@ -26,4 +22,4 @@ app.onError((err, c) => {
     return c.json({ error: "Internal Server Error" }, 500);
 });
 
-export type AppType = typeof app;
+export type AppType = typeof routes;

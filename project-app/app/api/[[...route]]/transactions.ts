@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { db } from "@/app/db/index";
+import { db } from "../../../db/index";
 import { and, desc, eq, gte, inArray, lte, sql } from "drizzle-orm";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 import { zValidator } from "@hono/zod-validator";
@@ -12,7 +12,7 @@ import {
     insertTransactionSchema,
     categories,
     accounts,
-} from "@/app/db/schema";
+} from "../../../db/schema";
 
 const app = new Hono();
 

@@ -7,6 +7,7 @@ import {
 import './globals.css'
 import { QueryProvider } from '@/providers/query-provider'
 import { SheetProvider } from '@/providers/sheet-provider'
+import { Toaster } from '@/components/ui/sonner'
 export default function RootLayout({
   children,
 }: {
@@ -17,12 +18,12 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <SignedOut>
-
           </SignedOut>
           <SignedIn>
           </SignedIn>
           <QueryProvider>
             <SheetProvider/>
+            <Toaster/>
             {children}
           </QueryProvider>
         </body>

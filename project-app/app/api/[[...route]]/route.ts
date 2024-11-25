@@ -1,24 +1,25 @@
-import { Hono } from 'hono'
-import { handle } from 'hono/vercel'
-import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
-import { HTTPException} from "hono/http-exception";
-import accounts from "./account";
+import { Hono } from "hono";
+import { handle } from "hono/vercel";
 
-export const runtime = 'edge'
+import accounts from "./accounts";
+import categories from "./categories"
+import transactions from "./transactions"
 
-export const app = new Hono().basePath('/api')
+export const runtime = "edge";
 
-app.onError((err,c) => {
-    if(err instanceof HTTPException){
-        return err.getResponse();
-    }
-    return c.json({ error: "Internal Server Error" }, 500);
-});
+const app = new Hono().basePath("/api");
+
+
 
 const routes = app
-.route("/accounts", accounts); // expect route handler, not a db schema object
+  .route("/accounts", accounts)
+  .route("/categories", categories)
+  .route("/transactions", transactions)
+
 
 export const GET = handle(app);
 export const POST = handle(app);
+export const PATCH = handle(app);
+export const DELETE = handle(app);
 
-export type Apptype = typeof routes; //used while combining with react query 
+export type AppType = typeof routes;

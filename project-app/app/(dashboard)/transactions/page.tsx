@@ -9,7 +9,7 @@ import { columns } from "./columns";
 import { DataTable } from "@/components/data-table";
 import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useBulkDeleteTransactions} from "@/features/transactions/api/use-bulk-delete-transactions";
+import { useBulkDeleteTransactions} from "@/features/transactions/api/use-bulk-delete-tranactions";
 
 const TransactionsPage = () => {
   const newTransaction = useNewTransaction();

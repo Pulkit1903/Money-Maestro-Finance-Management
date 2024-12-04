@@ -1,0 +1,34 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1716601184182,
+      "tag": "0000_young_odin",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1716602157174,
+      "tag": "0001_mixed_prowler",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1716892110817,
+      "tag": "0002_certain_stature",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1716905780446,
+      "tag": "0003_easy_victor_mancha",
+      "breakpoints": true
+    }
+  ]
+}

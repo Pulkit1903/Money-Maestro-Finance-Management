@@ -1,12 +1,11 @@
 import CurrencyInput from "react-currency-input-field";
 import { Info, MinusCircle, PlusCircle } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
-  TooltipTrigger,
   TooltipProvider,
+  TooltipTrigger,
 } from "@/components/ui/tooltip";
 
 type Props = {
@@ -28,44 +27,48 @@ export const AmountInput = ({
 
   const onReverseValue = () => {
     if (!value) return;
-    onChange((parsedValue * -1).toString());
+
+    const newValue = parsedValue * -1;
+    onChange(newValue.toString());
   };
 
   return (
     <div className="relative">
       <TooltipProvider>
-        <Tooltip>
+        <Tooltip delayDuration={100}>
           <TooltipTrigger asChild>
             <button
               type="button"
               onClick={onReverseValue}
-              className={cn("absolute top-2 right-2 p-2")}
+              className={cn(
+                "bg-slate-400 hover:bg-slate-500 absolute top-1.5 left-1.5 rounded-md p-2 flex items-center justify-center transition",
+                isIncome && "bg-emerald-500 hover:bg-emerald-600",
+                isExpense && "bg-rose-500 hover:bg-rose-600"
+              )}
             >
-              {!value && <Info className="text-gray-500" />}
-              {isIncome && <Info className="text-green-500" />}
-              {isExpense && <Info className="text-red-500" />}
+              {!parsedValue && <Info className="size-3" />}
+              {isIncome && <PlusCircle className="size-3" />}
+              {isExpense && <MinusCircle className="size-3" />}
             </button>
           </TooltipTrigger>
           <TooltipContent>
-            Use [+] to add income and [-] to add expenses
+            Use [+] for income and [-] for expenses
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
       <CurrencyInput
+        prefix="$"
+        className="pl-10 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        placeholder={placeholder}
         value={value}
         decimalsLimit={2}
         decimalScale={2}
         onValueChange={onChange}
         disabled={disabled}
-        prefix="Rs. "
-        placeholder={placeholder}
-        className={cn(
-          "block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-500 focus:outline-none focus:ring"
-        )}
       />
-      <p>
-        {isIncome && <PlusCircle className="size-4 text-green-500" />}
-        {isExpense && <MinusCircle className="size-4 text-red-500" />}
+      <p className="text-xs text-muted-foreground mt-2">
+        {isIncome && "This will count as income"}
+        {isExpense && "This will count as expense"}
       </p>
     </div>
   );

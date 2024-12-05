@@ -121,7 +121,7 @@ const TransactionsPage = () => {
             <Button
               onClick={newTransaction.onOpen}
               size="sm"
-              className="w-full lg:w-auto"
+              className="w-full lg:w-auto bg-stone-500 hover:bg-stone-400"
             >
               <Plus className="size-4 mr-2" />
               Add new

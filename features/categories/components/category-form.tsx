@@ -68,7 +68,7 @@ export const CategoryForm = ({
             </FormItem>
           )}
         />
-        <Button className="w-full" disabled={disabled}>
+        <Button className="w-full bg-stone-500 hover:bg-stone-400" disabled={disabled}>
           {id ? "Save changes" : "Create category"}
         </Button>
         {!!id && (

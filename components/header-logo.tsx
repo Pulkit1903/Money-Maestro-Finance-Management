@@ -6,7 +6,7 @@ export const HeaderLogo = () => {
     <Link href="/">
       <div className="items-center hidden lg:flex">
         <Image src="/logo.svg" alt="Logo" height={28} width={28} />
-        <p className="font-semibold text-white text-2xl ml-2.5">Finance</p>
+        <p className="font-semibold text-[#394149] text-l ml-1">Money Maestro</p>
       </div>
     </Link>
   );

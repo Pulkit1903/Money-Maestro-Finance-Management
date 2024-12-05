@@ -46,7 +46,7 @@ const AccoutnsPage = () => {
           <CardTitle className="text-xl line-clamp-1">
             Categories page
           </CardTitle>
-          <Button onClick={useCategory.onOpen} size="sm">
+          <Button onClick={useCategory.onOpen} size="sm" className=" bg-stone-500 hover:bg-stone-400">
             <Plus className="size-4 mr-2" />
             Add new
           </Button>
